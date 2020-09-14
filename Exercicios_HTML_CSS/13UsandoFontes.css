@@ -5,8 +5,6 @@ font-size : 50;
 }
 /* vai tentar encontrar as fontes nessa ordem */
 
-
-
 @font-face { /* possibilita utilizar fonts externas */
 font-family: 'IconicFill';
 src: url('iconic_fill.woff') format('woff');
