@@ -6,5 +6,5 @@ function start() {
 
   var media = (n1 + n2 + n3) / 3.0;
 
-  prompt(`Nome: ${name} | Média: ${media}`);
+  alert(`Nome: ${name} | Média: ${media}`);
 }
