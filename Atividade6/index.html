@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+
+    <title>Pedra, papel, tesoura!</title>
+</head>
+<body>
+    <h1>Pedra, papel, tesoura!</h1>
+    <h2>Selecione uma das opções abaixo:</h2>
+
+    <button type="button">Pedra</button>
+    <button type="button">Papel</button>
+    <button type="button">Tesoura</button>
+
+    <script>
+        // Selecionando todos os botões do corpo do HTML
+        const buttons = document.querySelectorAll("button");
+
+        // Adicionando o atributo 'click' (ao clicar) para todos os botões encontrados
+        // Setando para, ao ser clicado, chamar a função 'iniciarJogo'
+        for ( let i = 0; i < buttons.length; i++){
+            buttons[i].addEventListener('click', iniciarJogo);
+        }
+
+        // Jogo iniciado tomando como parâmetro o elemento que foi clicado
+        function iniciarJogo(elemento) {
+            // Pegando o texto que está dentro do elemento que foi clicado
+            let jogador = elemento.target.innerText;
+
+            // Seleciona um número entre 0 e 1 (não incluindo o 1)
+            let computador = Math.random();
+
+            //Dividindo o 0.99 em três partes
+            if (computador < 0.34) {
+                // Se for menor que 0.33, o computador seleciona Pedra
+                computador = "Pedra";
+            } else if (computador <= 0.67) {
+                // Se for menor ou igual que 0.67, o computador seleciona Papel
+                computador = "Papel";
+            } else {
+                // Se for maior que 0.67, o computador seleciona Tesoura
+                computador = "Tesoura";
+            }
+
+            alert("Você escolheu " + jogador + " e o Computador escolheu " + computador + "!");
+
+            checarVencedor(jogador, computador);
+        }
+
+        function checarVencedor (jogador, computador) {
+
+            if (jogador === computador){
+                return alert("Empate!");
+            }
+
+            if (jogador === 'Pedra'){
+                if(computador === 'Papel'){
+                    return alert("O computador venceu!");
+                } else {
+                    return alert("O(A) jogador(a) venceu!");
+                }
+            }
+
+            if (jogador === 'Papel'){
+                if (computador === 'Tesoura'){
+                    return alert("O computador venceu!");
+                } else {
+                    return alert("O(A) jogador(a) venceu!");
+                }
+            }
+
+            if (jogador === 'Tesoura'){
+                if (computador === 'Pedra'){
+                    return alert("O computador venceu!");
+                } else {
+                    return alert("O(A) jogador(a) venceu!");
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>
