@@ -1,0 +1,13 @@
+#container {
+  text-align: center;
+}
+
+#first,
+#second,
+#third {
+  margin-bottom: 20px;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
