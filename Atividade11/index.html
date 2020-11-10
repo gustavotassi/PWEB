@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <title>Input & Checkboxes</title>
+
+  <style>
+    body {
+      text-align: center;
+    }
+
+    #container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      margin-left: auto;
+      margin-right: auto;
+      width: 20%;
+
+      border-radius: 15px;
+      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.14);
+    }
+
+    #txtPrincipal {
+      height: 66px;
+
+      background: #F4F9FE;
+      border-radius: 15px;
+
+      border: none;
+      padding: 0 0.8rem;
+
+      text-align: center;
+    }
+  </style>
+
+</head>
+<body>
+  <div id="container">
+    <form action="form-action" method="post">
+      <p>
+        <input type="text" id="txtPrincipal" placeholder="Um texto simples." />
+      </p>
+      <p>
+          <input type="checkbox" id="chkMaiuscula" value="off">Texto maiúsculo
+      </p>
+      <p>
+          <input type="checkbox" id="chkMinuscula" value="off">Texto minúsculo
+      </p>
+    </form>
+  </div>
+
+  <script>
+    const chkMaiuscula = document.getElementById("chkMaiuscula");
+    const chkMinuscula = document.getElementById("chkMinuscula");
+    const txtPrincipal = document.getElementById("txtPrincipal");
+
+    document.getElementById("chkMaiuscula").onclick = function () {
+      txtPrincipal.value = txtPrincipal.value.toUpperCase();
+      chkMinuscula.checked = false;
+    };
+
+    document.getElementById("chkMinuscula").onclick = function () {
+      txtPrincipal.value = txtPrincipal.value.toLowerCase();
+      chkMaiuscula.checked = false;
+    };
+  </script>
+</body>
+</html>
