@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Activity</title>
+
+    <style>
+
+      body {
+        background-color: white;
+        text-align: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+
+      #formulario {
+        background-color: #d6daf8;
+        border-radius: 8px;
+        padding: 5px 20px;
+        width: 50%;
+        font-weight: 700;
+      
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      #pesquisa {
+        background-color: #e9ecff;
+        border-radius: 8px;
+        margin-top: 10px;
+        padding: 5px 20px;
+        width: 50%;
+        font-weight: 700;
+
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .button {
+        width: 10%;
+        height: 2.6rem;
+        background: #d6daf8;
+        color: black;
+        border: 0;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 700;
+      }
+
+      input {
+        margin-bottom: 10px;
+        height: 20px;
+        border: 1px solid lightskyblue;
+        border-radius: 8px;
+        padding: 0 15px;
+      }
+
+      #comentario {
+        border: 1px solid lightskyblue;
+        border-radius: 8px;
+        padding: 16px;
+        resize: none;
+      }
+
+      #radio-section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+        border: 1px solid lightblue;
+        border-radius: 8px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+    </style>
+
+</head>
+  <body>
+      <form method="post" id="main" onsubmit= "return verificarDados();">
+        <div id="container">
+          <h1>Formulário Principal</h1>
+          <div id="formulario">
+            <label for="name">Nome:</label>
+            <br>
+            <input type="text" id="name" size="32" maxlength="150" placeholder="Informe seu nome">
+            <br>
+    
+            <label for="email">E-mail:</label>
+            <br>
+            <input type="text" id="email" size="32" maxlength="150" placeholder="Informe seu e-mail">
+            <br>
+    
+            <label for="comentario">Comentário</label>
+            <br>
+            <textarea name="comentario" cols="50" rows="8" id="comentario" value="input"></textarea>
+            <br><br>
+          </div>
+
+          <div id="pesquisa">
+            <h2>Pesquisa:</h2>
+            <h4>Primeira vez na página?</h4>
+
+            <div id="radio-section">
+              <input type="radio" id="radioYes" value="off" name="radioYes">Sim 
+              <input type="radio" id="radioNo" value="off" name="radioNo">Não
+            </div>
+    
+            <br>
+
+            <input class="button" name="Submit" type="submit" form="main" value="Enviar">
+            <input class="button" name="Reset" type="reset" form="main" value="Limpar">
+          </div>
+        </div>
+      </form>
+
+    <script>
+      function verificarDados() {
+        const radioNo = document.getElementById("radioNo");
+        const radioYes = document.getElementById("radioYes");
+
+        // Validando o campo nome
+        // 'não pode ter menos que 10 caracteres'
+              
+        if (document.forms.main.elements.name.value == "") {
+            alert("O campo nome não deve pode estar vazio!");
+            document.forms.main.elements["name"].focus();
+            return false;
+        } else if (document.forms.main.elements.name.value.length < 10) {
+            alert("O campo nome deve conter mais que 10 caracteres!");
+            document.forms.main.elements["name"].focus();
+            return false;
+        }
+
+        // Validando o campo e-mail
+        // 'deve ter os caracteres @ e .''
+
+        if (document.forms.main.elements["email"].value == "" || 
+            document.forms.main.elements["email"].value.indexOf('@') == -1 ||
+            document.forms.main.elements["email"].value.indexOf('.') == -1) {
+
+            alert("E-mail inválido. Preencha o campo de forma correta!");
+            document.forms.main.elements.email.focus();
+            return false;
+        }
+
+        // Validando o campo comentário
+        // 'deve ter no mínimo 20 caracteres'
+
+        if (document.forms.main.elements.comentario.value == "" || 
+            document.forms.main.elements.comentario.value.length < 20) {
+
+            alert("O campo de comentário precisa ter mais de 20 caracteres!");
+            document.getElementById("comentario").focus();
+            return false;
+        }
+
+        if (radioNo.checked == false && radioYes.checked == false) {
+          alert("Por favor, responda a nossa pesquisa antes de continuar.");
+          return false;
+        }
+
+        if (radioYes.checked == true)
+          alert("Volte sempre à esta página!");
+
+        else if (radioNo.checked == true)
+          alert("Que bom que você voltou a visitar esta página!");
+        
+        return true;
+    }
+    </script>
+  </body>
+</html>
