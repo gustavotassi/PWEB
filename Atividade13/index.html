@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursos FATEC</title>
+    <style>
+      body {
+        text-align: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: 700;
+      }
+
+      #container {
+        background-color: cornsilk;
+        width: 50%;
+        margin: 0 auto;
+        padding: 2.4rem;
+        border-radius: 15px;
+        border: 1px solid lightcoral;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h1>Por favor, escolha um curso:</h1>
+      <br>
+      <select id="cursos" name="cursos" onchange="irPara(this)">
+      <option value="" hidden="">Selecione uma opção</option>
+      <option value="curso_ads.asp">Análise e Desenvolvimento de Sistemas</option>
+      <option value="curso_ea.asp">Eletrônica Automotiva</option>
+      <option value="curso_fm.asp">Fabricação Mecânica</option>
+      <option value="curso_ead-ge.asp">Gestão Empresarial - EAD</option>
+      <option value="curso_gq.asp">Gestão de Qualidade</option>
+      <option value="curso_log.asp">Logística</option>
+      <option value="curso_ma.asp">Manufatura Avançada</option>
+      <option value="curso_pm.asp">Processos Metalúrgicos</option>
+      <option value="curso_pol.asp">Polímeros</option>
+      <option value="curso_proj.asp">Projetos Mecânicos</option>
+      <option value="curso_sb.asp">Sistemas Biomédicos</option>
+      </select>
+    </div>
+    <script>
+      function irPara(op){
+        if(window.confirm('Deseja realmente abrir uma nova janela contendo o curso?'))
+          window.open('http://www.fatecsorocaba.edu.br/' + op.value, 'Curso FATEC','width=600, height=300');
+        
+        else
+          return;
+      }
+    </script>
+  </body>
+</html>
